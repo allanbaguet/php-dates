@@ -1,6 +1,7 @@
 <?php
 // 't' permet de savoir seulement les jours dans le mois défini
-$numberDays = date('t', strtotime('2016-02-01'));
+// $numberDays = date('t', strtotime('2016-02-01'));
+$number = cal_days_in_month(CAL_GREGORIAN, 2, 2016);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -67,7 +68,7 @@ $numberDays = date('t', strtotime('2016-02-01'));
     <hr class="border border-4 border-dark">
     <main>
         <div>
-            <p> le nombre de jour dans le mois bissextile de février 2016 est : <?php echo $numberDays ?> </p>
+            <p> le nombre de jour dans le mois bissextile de février 2016 est : <?= $number ?> </p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

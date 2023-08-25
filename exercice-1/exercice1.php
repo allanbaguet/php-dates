@@ -1,3 +1,7 @@
+<?php
+$date = new DateTime('now');
+$dateFormated = $date->format('d/m/Y');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -65,7 +69,7 @@
         <div>
             <!-- ici nous allons utilisé la fonction date() pour savoir la date courante -->
             <!-- d -> jour du mois en chiffre / m -> mois de l'année en chiffre / Y -> représente l'année sur 4 chiffres -->
-            <p> la date courante sous la forme jj/mm/aaaa est : <?php echo date('d/m/Y') ?> </p>
+            <p> la date courante sous la forme jj/mm/aaaa est : <?= $dateFormated ?> </p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

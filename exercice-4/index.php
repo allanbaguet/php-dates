@@ -2,11 +2,15 @@
 // <!-- Le format Timestamp UNIX est un format de mesure de date très utilisé en programmation -->
 // <!-- Pour obtenir le Timestamp actuel en PHP, c’est-à-dire le nombre de secondes écoulées
 // entre le 1er janvier 1970 à minuit GMT et le moment actuel, nous allons utiliser la fonction time(). -->
-$currentTimestamp = time();
-$dateStr = '2016-08-12 15:00:00';
+// $currentTimestamp = time();
+// $dateStr = '2016-08-12 15:00:00';
 // La fonction strtotime() essaye de lire une date au format anglais fournie par le paramètre time,
 // et de la transformer en timestamp Unix (le nombre de secondes depuis le 1er Janvier 1970 à 00:00:00 UTC)
-$defineTimestamp = strtotime($dateStr);
+// $defineTimestamp = strtotime($dateStr);
+$actualDate = new DateTime();
+$pastDate = new DateTime('2016/08/02 15:00:00');
+$actualTimestamp = $actualDate->getTimestamp();
+$pastTimestamp = $pastDate->getTimestamp();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -74,8 +78,8 @@ $defineTimestamp = strtotime($dateStr);
     <hr class="border border-4 border-dark">
     <main>
         <div>
-            <p> timestamp du jour : <?php echo $currentTimestamp ?> </p>
-            <p> Timestramp du mardi 2 août 2016 à 15H00 : <?php echo $defineTimestamp ?> </p>
+            <p> timestamp du jour : <?= $currentTimestamp ?> </p>
+            <p> Timestramp du mardi 2 août 2016 à 15H00 : <?= $defineTimestamp ?> </p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

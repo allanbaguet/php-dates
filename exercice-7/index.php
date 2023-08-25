@@ -1,6 +1,8 @@
 <?php
-$table = array(02 => 'Aisne', 59 => 'Nord', 60 => 'Oise', 62 => 'Pas-de-Calais', 80 => 'Somme');
-$table[51] = "Marne";
+// $table = array(02 => 'Aisne', 59 => 'Nord', 60 => 'Oise', 62 => 'Pas-de-Calais', 80 => 'Somme');
+// $table[51] = "Marne";
+$dateNow = new DateTime('now');
+$dateNow->add(new DateInterval('P20D'));
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -68,7 +70,8 @@ $table[51] = "Marne";
     <main>
         <div>
             <!-- permet d'ajouter 20 jours tout en étant des string et non pas des int -->
-            <p>La date du jour +20 jours : <?php echo date('d/m/Y', strtotime('+20 days'))?></p>
+            <!-- <?php echo date('d/m/Y', strtotime('+20 days'))?> -->
+            <p>La date du jour +20 jours : <?= $dateNow ?></p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

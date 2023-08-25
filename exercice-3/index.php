@@ -1,3 +1,12 @@
+<?php
+$date = new DateTime('now');
+$dateFormatedFr = new IntlDateFormatter('fr_FR', IntlDateFormatter::NONE, IntlDateFormatter::NONE);
+$dateFormatedEn = new IntlDateFormatter('en_EN', IntlDateFormatter::NONE, IntlDateFormatter::NONE);
+$dateFormated->setPattern('EEEE dd MMMM Y');
+$dateFormatedEn->setPattern('EEEE dd MMMM Y');
+$dateFr = $dateFormated->format($date);
+$dateEn = $dateFormatedEn->format($date);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -64,16 +73,19 @@
     <hr class="border border-4 border-dark">
     <main>
         <div>
-            <!-- setlocale permet de modifier et de définir des information en local -->
-            <!-- fr fra et fr_FR permet de couvrir un plus grand nombre système d'opération -->
-            <?php setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']); ?>
+            <!-- setlocale permet de modifier et de définir des information en local
+            fr fra et fr_FR permet de couvrir un plus grand nombre système d'opération -->
+            <!-- <?php setlocale(LC_TIME, ['fr', 'fra', 'fr_FR']); ?> -->
             <p> la date courante avec le jour et le mois en toutes lettres et en français :
                 <!-- %A -> jour de la semaine en toute lettre en anglais 
                 %d -> jour du mois en 2 chiffres 
                 %B -> mois de l'année en toute lettre 
                 %Y -> l'année sur 4 chiffres
-                utf8_encode -> permet aux caractères spéciaux d'être encodée correctement (ici août)-->
-                <?php echo utf8_encode(strftime('%A %d %B %Y')) ?> </p>
+                utf8_encode -> permet aux caractères spéciaux d'être encodée correctement (ici août) -->
+                <!-- ucwords permet de mettre les lettre en uppercase -->
+                <?= ucwords($dateFr) ?> </p> 
+            <p> et en anglais : 
+                <?= ucwords($dateEn) ?> </p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

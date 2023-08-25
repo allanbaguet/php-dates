@@ -1,12 +1,16 @@
 <?php
-$today = time();
-$past = strtotime('2016-05-16');
-$diffTimestamp = $today - $past;
+// $today = time();
+// $past = strtotime('2016-05-16');
+// $diffTimestamp = $today - $past;
 // floor permet d'arrondir et d'enlevé les décimals 
 // ** Pour convertir le timestamp (exprimé en secondes) en jours **
 // On sait que 1 heure = 60 secondes * 60 minutes et que 1 jour = 24 heures donc :
 // 86400 = 60(seconde) * 60(minutes) * 24 (heures)
-$diffDate = floor($diffTimestamp/86400); 
+// $diffDate = floor($diffTimestamp/86400); 
+$d1 = new DateTime('2016-05-16');
+$d2 = new DateTime('now');
+$ecart = $d1->diff($d2);
+$diffEnJours= $ecart->days;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -73,7 +77,7 @@ $diffDate = floor($diffTimestamp/86400);
     <hr class="border border-4 border-dark">
     <main>
         <div>
-            <p> Le nombre de jours qui sépare ces 2 dates sont : <?php echo $diffDate ?> jours</p>
+            <p> Le nombre de jours qui sépare ces 2 dates sont : <?= $diffEnJours ?> jours</p>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
